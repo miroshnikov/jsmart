@@ -4,7 +4,7 @@
 
 	<title>jSmart unit test</title>
 	
-	<script type="text/javascript" src="../smart{if $use_compiled}.min{/if}.js"></script>
+	<script type="text/javascript" src="../smart{if $use_compiled}-2.3.min{/if}.js"></script>
 	<script type="text/javascript" src="jquery.min.js"></script>
 	<script type="text/javascript" src="qunit.js"></script>
 	
