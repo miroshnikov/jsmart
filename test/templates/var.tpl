@@ -193,3 +193,5 @@ obData.ob2.value}
 
 {$sss = '77777777777777777777'}
 {$sss}
+
+NULL is [{$nullVar}]
