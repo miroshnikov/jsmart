@@ -37,6 +37,15 @@ function strayNoArgs()
 	return 'bar';
 }
 
+function strayReturnTrue()
+{
+	return true;
+}
+
+function strayReturnFalse()
+{
+	return false;
+}
 
 $smarty->assign(
 	'books',

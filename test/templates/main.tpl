@@ -148,6 +148,15 @@
 		return 'bar';
 	}
 	
+	function strayReturnTrue()
+	{
+		return true;
+	}
+	
+	function strayReturnFalse()
+	{
+		return false;
+	}
 </script>
 
 <script type="text/x-jsmart-tmpl" id='test_insert'>

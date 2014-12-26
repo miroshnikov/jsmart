@@ -223,3 +223,9 @@ ob is {if $ob} not empty {else} empty {/if}
 {/if}
 
 {if $falseVar} not now {else if $trueVar} YES {else} not again {/if}
+
+
+{if strayNoArgs() && false} err if strayNoArgs() && false {else} OK {/if}
+{if strayReturnTrue() && false} err if strayReturnTrue() && false {else} OK {/if}
+{if strayReturnTrue()} OK {else} strayReturnTrue() returned false {/if}
+{if strayReturnFalse()} strayReturnFalse() returned true {else} OK {/if}
