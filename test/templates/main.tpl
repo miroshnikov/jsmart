@@ -400,7 +400,7 @@
 
 
 <!-- <script type="text/javascript" src="php.default.min.js"></script> -->
-<script type="text/javascript" src="defplusstrftime.namespaced.min.js"></script>
+<script type="text/javascript" src="phpjs.js"></script>
 {runTest nm='mailto'}
 {runTest nm='math'}
 
@@ -442,7 +442,7 @@
 </script>
 {/literal}
 
-{runTest nm='filters'}
+{runTest nm='filters'}   {* 41 test in total *}
 
 
 </body>

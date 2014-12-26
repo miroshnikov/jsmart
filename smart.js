@@ -2034,11 +2034,7 @@
         {
             return (typeof window == 'object') ? window : global;
         }
-        else if (typeof(PHP_JS) == 'function')
-        {
-            return new PHP_JS();
-        }
-        throw new Error("Modifier '" + modifier + "' uses JavaScript port of PHP function '" + fnm + "'. You can find one at http://phpjs.org");
+        throw new Error("Modifier '" + modifier + "' uses JavaScript port of PHP function '" + fnm + "'. You can find one at http://phpjs.org/functions/" + fnm);
     }
 
     jSmart.prototype.makeTimeStamp = function(s)
