@@ -617,7 +617,8 @@
 
                 process: function(node, data)
                 {
-                    if (getActualParamValues(node.params,data)[0])
+					var res = getActualParamValues(node.params,data)[0];
+                    if (res && !((res instanceof Array && !res.length) || (res instanceof Object && !countProperties(res)))) 
                     {
                         return process(node.subTreeIf, data);
                     }

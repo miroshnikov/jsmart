@@ -206,6 +206,16 @@ f:[{$a != 'aaa'}]		  		//empty string
 	err
 {/if}
 
+
+aEmpty is {if $aEmpty} not empty {else} empty {/if}
+
+a is {if $a} not empty {else} empty {/if}
+
+oEmpty is {if $oEmpty} not empty {else} empty {/if}
+
+ob is {if $ob} not empty {else} empty {/if}
+
+
 {if $falseVar === 0}
 	err
 {else}
