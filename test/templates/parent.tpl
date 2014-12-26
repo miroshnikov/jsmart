@@ -12,8 +12,12 @@
 
 //child
 -{block name='b6'}[{$smarty.block.child}]{/block}-
+{* broke in Smarty 3.1.21
 -{block name='b7'} p7 {/block}-
 -{block name='b8'} p8 {/block}-
+*}
+-{block name='b77'} p77 {/block}-
+-{block name='b88'} p88 {/block}-
 -{block name='b9'} |{$smarty.block.child}| {/block}-
 -{block name='b10'} <{$smarty.block.child}> {/block}-
 <title>{block name="title3"}The {$smarty.block.child} was inserted here{/block}</title>

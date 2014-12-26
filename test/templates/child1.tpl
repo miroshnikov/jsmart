@@ -8,8 +8,12 @@ ignored
 {block name="title2" prepend}Page Title{/block}
 
 {block name='b6'}child1{/block}
+{* broke in Smarty 3.1.21
 {block name='b7' append} c1.7 {$smarty.block.child} {/block}
 {block name='b8' prepend} c1.8 {$smarty.block.child} {/block}
+*}
+{block name='b77'} c1.77 {$smarty.block.child} {/block}
+{block name='b88'} c1.88 {$smarty.block.child} {/block}
 {block name='b9'} [{$smarty.block.child}] {/block}
 {block name='b10'} c1.10 {/block}
 {block name="title3"}Child Title{/block}

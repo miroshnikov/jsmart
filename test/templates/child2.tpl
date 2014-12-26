@@ -8,8 +8,12 @@ ignored
 
 
 {block name='b6'}child2{/block}
+{* broke in Smarty 3.1.21
 {block name='b7'} c2.7 {/block}
 {block name='b8'} c2.8 {/block}
+*}
+{block name='b77'} c2.77 {/block}
+{block name='b88'} c2.88 {/block}
 {block name='b9'} c2.9 {/block}
 {block name='b10'} c2.10 {/block}
 
