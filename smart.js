@@ -3086,7 +3086,7 @@
         'date_format', 
         function(s, fmt, defaultDate)
         {
-            return jSmart.prototype.PHPJS('strftime','date_format').strftime(fmt?fmt:'%b %e, %Y', jSmart.prototype.makeTimeStamp(s?s:defaultDate));
+            return s ? jSmart.prototype.PHPJS('strftime','date_format').strftime(fmt?fmt:'%b %e, %Y', jSmart.prototype.makeTimeStamp(s?s:defaultDate)) : '';
         }
     );
 
