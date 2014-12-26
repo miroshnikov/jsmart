@@ -221,3 +221,5 @@ ob is {if $ob} not empty {else} empty {/if}
 {else}
 	OK
 {/if}
+
+{if $falseVar} not now {else if $trueVar} YES {else} not again {/if}

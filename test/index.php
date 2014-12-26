@@ -22,6 +22,8 @@ $smarty->assign('long_text', "\nfirst paragraph. Second sentence. \nNext paragra
 $smarty->assign('aEmpty',array());
 $smarty->assign('oEmpty',array());
 $smarty->assign('sEmpty','');
+$smarty->assign('trueVar',true);
+$smarty->assign('falseVar',false);
 $smarty->assign('nullVar',null);
 
 

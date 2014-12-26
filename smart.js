@@ -599,7 +599,7 @@
                         parse(content.slice(0,findElse.index),subTreeIf);
 
                         content = content.slice(findElse.index+findElse[0].length);
-                        var findElseIf = findElse[1].match(/^elseif(.*)/);
+                        var findElseIf = findElse[1].match(/^else\s*if(.*)/);
                         if (findElseIf)
                         {
                             buildInFunctions['if'].parse(parseParams(findElseIf[1]), subTreeElse, content.replace(/^\n/,''));
