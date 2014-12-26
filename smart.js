@@ -2896,6 +2896,7 @@
             if (!content) {
                 return '';
             }
+			content = new String(content);
 
             var wrap = params.__get('wrap',80);
             var wrap_char = params.__get('wrap_char','\n');
@@ -2953,6 +2954,9 @@
         'capitalize', 
         function(s, withDigits)
         {
+			if (typeof s != 'string') {
+				return s;
+			}
             var re = new RegExp(withDigits ? '[\\W\\d]+' : '\\W+');
             var found = null;
             var res = '';
@@ -2984,7 +2988,7 @@
         function(s, value)
         {
             value = value ? value : '';
-            return s + value;
+            return new String(s) + value;
         }
     );
 
@@ -3020,6 +3024,7 @@
         'count_characters', 
         function(s, includeWhitespaces)
         {
+			s = new String(s);
             return includeWhitespaces ? s.length : s.replace(/\s/g,'').length;
         }
     );
@@ -3029,7 +3034,7 @@
         'count_paragraphs', 
         function(s)
         {
-            var found = s.match(/\n+/g);
+            var found = (new String(s)).match(/\n+/g);
             if (found)
             {
 	             return found.length+1;
@@ -3043,11 +3048,14 @@
         'count_sentences', 
         function(s)
         {
-            var found = s.match(/[^\s]\.(?!\w)/g);
-            if (found)
-            {
-	             return found.length;
-            }
+			if (typeof s == 'string')
+			{
+	            var found = s.match(/[^\s]\.(?!\w)/g);
+	            if (found)
+	            {
+		             return found.length;
+	            }
+			}
             return 0;
         }
     );
@@ -3057,11 +3065,14 @@
         'count_words', 
         function(s)
         {
-            var found = s.match(/\w+/g);
-            if (found)
-            {
-	             return found.length;
-            }
+			if (typeof s == 'string')
+			{
+	            var found = s.match(/\w+/g);
+	            if (found)
+	            {
+		             return found.length;
+	            }
+			}
             return 0;
         }
     );
@@ -3155,6 +3166,7 @@
         'indent',
         function(s, repeat, indentWith)
         {
+			s = new String(s);
             repeat = repeat ? repeat : 4;
             indentWith = indentWith ? indentWith : ' ';
             
@@ -3174,7 +3186,7 @@
         'lower', 
         function(s)
         {
-            return s.toLowerCase();
+            return new String(s).toLowerCase();
         }
     );
 
@@ -3183,7 +3195,7 @@
         'nl2br', 
         function(s)
         {
-            return s.replace(/\n/g,'<br />\n');
+            return new String(s).replace(/\n/g,'<br />\n');
         }
     );
 
@@ -3234,7 +3246,7 @@
             {
                 space = ' ';
             }
-            return s.replace(/(\n|.)(?!$)/g,'$1'+space);
+            return (new String(s)).replace(/(\n|.)(?!$)/g,'$1'+space);
         }
     );
 
@@ -3272,6 +3284,7 @@
         'truncate', 
         function(s, length, etc, breakWords, middle)
         {
+			s = new String(s);
             length = length ? length : 80;
             etc = (etc!=null) ? etc : '...';
             
@@ -3301,7 +3314,7 @@
         'upper', 
         function(s)
         {
-            return s.toUpperCase();
+            return (new String(s)).toUpperCase();
         }
     );
 
@@ -3310,33 +3323,33 @@
         'wordwrap', 
         function(s, width, wrapWith, breakWords)
         {
-	         width = width || 80;
-	         wrapWith = wrapWith || '\n';
+	        width = width || 80;
+	        wrapWith = wrapWith || '\n';
 	         
-	         var lines = s.split('\n');
-	         for (var i=0; i<lines.length; ++i)
-	         {
-		          var line = lines[i];
+	        var lines = (new String(s)).split('\n');
+	        for (var i=0; i<lines.length; ++i)
+	        {
+                var line = lines[i];
                 var parts = ''
-		          while (line.length > width)
-		          {
-                   var pos = 0;
-                   var found = line.slice(pos).match(/\s+/);
-                   for (;found && (pos+found.index)<=width; found=line.slice(pos).match(/\s+/))
-                   {
-                      pos += found.index + found[0].length;
-                   }
-                   pos = pos || (breakWords ? width : (found ? found.index+found[0].length : line.length));
-                   parts += line.slice(0,pos).replace(/\s+$/,'');// + wrapWith;
-                   if (pos < line.length)
-                   {
-                      parts += wrapWith;
-                   }
-                   line = line.slice(pos);
+                while (line.length > width)
+                {
+                    var pos = 0;
+                    var found = line.slice(pos).match(/\s+/);
+                    for (;found && (pos+found.index)<=width; found=line.slice(pos).match(/\s+/))
+                    {
+                        pos += found.index + found[0].length;
+                    }
+                    pos = pos || (breakWords ? width : (found ? found.index+found[0].length : line.length));
+                    parts += line.slice(0,pos).replace(/\s+$/,'');// + wrapWith;
+                    if (pos < line.length)
+                    {
+                        parts += wrapWith;
+                    }
+                    line = line.slice(pos);
                 }
-		          lines[i] = parts + line;
-	         }
-	         return lines.join('\n');
+		        lines[i] = parts + line;
+	        }
+	        return lines.join('\n');
         }
     );
 
