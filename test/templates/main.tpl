@@ -222,7 +222,7 @@
 {/literal}
 
 
-<h1 id="qunit-header">jSmart unit test</h1>
+<h1 id="qunit-header">jSmart unit test (total 41)</h1>
 <h2 id="qunit-banner"></h2>
 <div id="qunit-testrunner-toolbar"></div>
 <h2 id="qunit-userAgent"></h2>

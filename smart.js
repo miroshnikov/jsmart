@@ -260,7 +260,7 @@
                         }
                         if (escape_html)
                         {
-                            res = modifiers.escape(res);
+                            res = modifiers.__escape(res);
                         }
                         res = applyFilters(varFilters,res);
 
@@ -1409,7 +1409,7 @@
 
         e.value += modifier[0];
 
-        var fnm = modifier[1]=='default' ? 'defaultValue' : modifier[1];
+        var fnm = modifier[1]=='default' ? '__defaultValue' : '__'+modifier[1];
         s = s.slice(modifier[0].length).replace(/^\s+/,'');
         
         parseModifiers.stop = true;
@@ -1879,7 +1879,7 @@
     {
         if (type == 'modifier')
         {
-            modifiers[name] = callback;
+            modifiers['__'+name] = callback;
         }
         else
         {
@@ -2925,7 +2925,7 @@
                     p = indentFirstStr + p;
                 }
 
-                p = modifiers.wordwrap(p, wrap-indent, wrap_char, wrap_cut);
+                p = modifiers.__wordwrap(p, wrap-indent, wrap_char, wrap_cut);
 
                 if (indent)
                 {
@@ -3006,7 +3006,7 @@
                 {
                     cnt++;
                     if (recursive && v[k] && (v[k].constructor === Array || v[k].constructor === Object)) {
-                        cnt += modifiers.count(v[k], true);
+                        cnt += modifiers.__count(v[k], true);
                     }
                 }
             }
