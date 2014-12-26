@@ -1220,7 +1220,7 @@
                 }
             },
             {
-                re: /^\s*(==|!=|===|!==)\s*/,
+                re: /^\s*(===|!==|==|!=)\s*/,
                 parse: function(e, s)
                 {
                     parseOperator(RegExp.$1, 'binary', 6, e.tree);

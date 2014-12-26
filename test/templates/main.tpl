@@ -206,6 +206,8 @@
 			'long_text': "\nfirst paragraph. Second sentence. \nNext paragraph. AAAAA.    Third sentence \n\n\n Third paragraph\n",
 			'aEmpty' : [],
 			'sEmpty' : '',
+			'trueVar' : true,
+			'falseVar' : false,
 			'nullVar': null,
 			'testClassObj': new TestClassObj,
 			'includePHP': includePHP,

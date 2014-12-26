@@ -205,3 +205,9 @@ f:[{$a != 'aaa'}]		  		//empty string
 {else}
 	err
 {/if}
+
+{if $falseVar === 0}
+	err
+{else}
+	OK
+{/if}
