@@ -10,7 +10,9 @@ jSmart has some limited support of the PHP syntax and allows you to [use the sam
 
 See the overview of the basic syntax of jSmart templates [here](https://github.com/miroshnikov/jsmart/blob/wiki/syntax.md)
 
-[**Demo page** play with it at JsFiddle](https://jsfiddle.net/miroshnikov/6tfz9p3z/1/)
+[**Demo page**](https://jsfiddle.net/miroshnikov/6tfz9p3z/1/) play with it at JsFiddle
+
+[**Discussion board**](http://groups.google.com/group/jsmartdiscussion) feel free to ask questions, share your ideas, etc.
 
 ##A Quick Introduction
 * Include jSmart library Javascript file in your header
