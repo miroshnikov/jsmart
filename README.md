@@ -1,4 +1,4 @@
-#Smarty for JavaScript Templates  ![JSmart Logo](https://github.com/miroshnikov/jsmart/blob/master/jsmartlogo.gif)
+# ![Logo](https://raw.githubusercontent.com/miroshnikov/jsmart/master/jsmartlogo.gif) Smarty for JavaScript Templates
 
 jSmart is a port of the Smarty Template Engine to Javascript, a JavaScript template library that supports the template [syntax](https://github.com/miroshnikov/jsmart/blob/wiki/syntax.md) and all the features (functions, variable modifiers, etc.) of the well-known PHP template engine [Smarty] (http://www.smarty.net). 
 
