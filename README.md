@@ -1,19 +1,4 @@
-###Download jSmart Latest Stable Release 2.11
-
-[Download the compressed jSmart 2.11] (https://drive.google.com/open?id=0B8l3ZqyDglIRMGVManJFNUwwUlk&authuser=0)
-
-[Download the uncompressed jSmart 2.11] (https://drive.google.com/open?id=0B8l3ZqyDglIRbXVzbGRsQUwxM1U&authuser=0)
-
-[Download the usage example file] (https://drive.google.com/open?id=0B8l3ZqyDglIRVkh0TUlHamJBV0U&authuser=0)
-
-[Download the compressed file with phpjs functions] (https://drive.google.com/open?id=0B8l3ZqyDglIReERCSHFwUXUtYU0&authuser=0) you may need them if you use certain modifiers (e.g. date_format, string_format, escape, etc.)
-
-[See list of all available downloads] (https://drive.google.com/open?id=0B8l3ZqyDglIRSXYwUURJSENjMk0&authuser=0)
-
-_The files are hosted on Google Drive. To download a file to your computer from Google Drive click the button with an arrow at the top of the page._
-
-----
-#Smarty for JavaScript Templates  ![JSmart Logo](https://github.com/miroshnikov/jsmart/blob/master/jsmartlogo.gif)
+# ![Logo](https://raw.githubusercontent.com/miroshnikov/jsmart/master/jsmartlogo.gif) Smarty for JavaScript Templates
 
 jSmart is a port of the Smarty Template Engine to Javascript, a JavaScript template library that supports the template [syntax](https://github.com/miroshnikov/jsmart/blob/wiki/syntax.md) and all the features (functions, variable modifiers, etc.) of the well-known PHP template engine [Smarty] (http://www.smarty.net). 
 
@@ -24,6 +9,10 @@ jSmart supports plugin architecture, you can [extend it with custom plugins](htt
 jSmart has some limited support of the PHP syntax and allows you to [use the same Smarty templates on both server and client side](https://github.com/miroshnikov/jsmart/blob/wiki/Smarty_template_in_javascript.md), for both PHP and Javascript.
 
 See the overview of the basic syntax of jSmart templates [here](https://github.com/miroshnikov/jsmart/blob/wiki/syntax.md)
+
+[**Demo page**](https://jsfiddle.net/miroshnikov/6tfz9p3z/1/) play with it at JsFiddle
+
+[**Discussion board**](http://groups.google.com/group/jsmartdiscussion) feel free to ask questions, share your ideas, etc.
 
 ##A Quick Introduction
 * Include jSmart library Javascript file in your header
