@@ -676,7 +676,11 @@ var buildInFunctions =
             {
                 var params = getActualParamValues(node.params, data);
                 var a = params.from;
-                if (!(a instanceof Object))
+                if (typeof a == 'undefined') 
+                {
+                    a = [];
+                } 
+                if (typeof a != 'object')
                 {
                     a = [a];
                 }
@@ -1705,7 +1709,7 @@ function getVarValue(node, data, val)
             {
                 if (typeof val == 'undefined')
                 {
-                    return '';
+                    return val;
                 }
                 v[nm] = {};
                 v = v[nm];
@@ -1761,15 +1765,11 @@ function process(tree, data)
         {
             s = s ? '1' : '';
         }
-		if (s == null)
-		{
-			s = '';
-		}
         if (tree.length == 1)
         {
             return s;
         }
-        res += s;
+        res += s!==null ? s : '';
 
         if (data.smarty['continue'] || data.smarty['break'])
         {

@@ -676,7 +676,11 @@ var buildInFunctions =
             {
                 var params = getActualParamValues(node.params, data);
                 var a = params.from;
-                if (!(a instanceof Object))
+                if (typeof a == 'undefined') 
+                {
+                    a = [];
+                } 
+                if (typeof a != 'object')
                 {
                     a = [a];
                 }
@@ -1705,7 +1709,7 @@ function getVarValue(node, data, val)
             {
                 if (typeof val == 'undefined')
                 {
-                    return '';
+                    return val;
                 }
                 v[nm] = {};
                 v = v[nm];
@@ -1761,15 +1765,11 @@ function process(tree, data)
         {
             s = s ? '1' : '';
         }
-		if (s == null)
-		{
-			s = '';
-		}
         if (tree.length == 1)
         {
             return s;
         }
-        res += s;
+        res += s!==null ? s : '';
 
         if (data.smarty['continue'] || data.smarty['break'])
         {
@@ -2599,6 +2599,10 @@ jSmart.prototype.registerPlugin(
             }
         }
         var selected = params.__get('selected',false);
+        if (selected && !(selected instanceof Array))
+        {
+            selected = [selected];
+        }
 
         var res = [];
         var s = '';
@@ -2608,9 +2612,15 @@ jSmart.prototype.registerPlugin(
             if (values.hasOwnProperty(p))
             {
                 s = '<option value="' + (useName ? p : values[p]) + '"';
-                if (selected == (useName ? p : values[p]))
+              
+                if (selected) 
                 {
-                    s += ' selected="selected"';
+                    for (var i=0; i<selected.length; ++i) {
+                        if (selected[i]==(useName ? p : values[p])) {
+                            s += ' selected="selected"';
+                            break;
+                        }
+                    }
                 }
                 s += '>' + output[useName ? p : i++] + '</option>';
                 res.push(s);
