@@ -336,7 +336,12 @@ var buildInFunctions =
                 }
                 else if (node.op == '!')
                 {
-                    return (arg1 instanceof Array) ? !arg1.length : !arg1;
+                    if (arg1 instanceof Array) {
+                        return !arg1.length;
+                    } else if (typeof arg1 == 'object') {
+                        return !countProperties(arg1);
+                    }
+                    return arg1==='0' ? true : !arg1;
                 }
                 else 
                 {
@@ -1649,7 +1654,7 @@ function getActualParamValues(params,data)
 
     actualParams.__get = function(nm,defVal,id)
     {
-        if (nm in actualParams && typeof(actualParams[nm]) != 'undefined')
+        if (nm in actualParams && typeof(actualParams[nm]) != 'undefined' && typeof(actualParams[nm]) != 'function')
         {
             return actualParams[nm];
         }
@@ -1801,14 +1806,17 @@ function getTemplate(name, tree, nocache)
 function stripComments(s)
 {
     var sRes = '';
-    for (var openTag=s.match(/{\*/); openTag; openTag=s.match(/{\*/))
+    var open = new RegExp(jSmart.prototype.left_delimiter+'\\*');
+    var close = new RegExp('\\*'+jSmart.prototype.right_delimiter);
+   
+    for (var openTag=s.match(open); openTag; openTag=s.match(open))
     {
         sRes += s.slice(0,openTag.index);
         s = s.slice(openTag.index+openTag[0].length);
-        var closeTag = s.match(/\*}/);
+        var closeTag = s.match(close);
         if (!closeTag)
         {
-            throw new Error('Unclosed {*');
+            throw new Error('Unclosed '+jSmart.left_delimiter+'*');
         }
         s = s.slice(closeTag.index+closeTag[0].length);
     }
