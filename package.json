@@ -1,5 +1,5 @@
 {
-  "name": "jsmart",
+  "name": "smarty.js",
   "version": "3.2.0",
   "description": "Port of the PHP template engine Smarty to Javascript",
   "main": "smart.min.js",
