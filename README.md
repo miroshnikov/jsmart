@@ -14,15 +14,29 @@ See the overview of the basic syntax of jSmart templates [here](https://github.c
 
 [**Discussion board**](http://groups.google.com/group/jsmartdiscussion) feel free to ask questions, share your ideas, etc.
 
-##A Quick Introduction
-* Include jSmart library Javascript file in your header
+##Installation
+* Browser
 ```html
-<html>
-    <head>
-      <script language="javascript" src="smart-2.11.min.js"></script>
-    </head>
+<script language="javascript" src="smart.min.js"></script>
 ```
-
+* Bower
+```
+bower install smarty
+```
+* Node.js
+```
+npm install smarty.js
+```
+* Require.js
+```javascript
+    require(['smart'], function(jSmart){
+    	var compiled = new jSmart("Hello {$who}!");
+	    var res = compiled.fetch({who:'world'});
+	    document.write(res);
+	});
+```
+##A Quick Introduction
+Using in browser
 * Create template, use ```PHP Smarty syntax```. Put the template's text in ```<script>``` with the ```type="text/x-jsmart-tmpl"``` so a browser will not try to parse it and mess it up.
 ```smarty
 <script id="test_tpl" type="text/x-jsmart-tmpl">
