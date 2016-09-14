@@ -17,7 +17,7 @@ See the overview of the basic syntax of jSmart templates [here](https://github.c
 ##Installation
 * Browser
 ```html
-<script language="javascript" src="smart.min.js"></script>
+<script type="text/javascript" src="smart.min.js"></script>
 ```
 * Node.js
 ```
