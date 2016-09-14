@@ -1,0 +1,29 @@
+{
+  "name": "jsmart",
+  "version": "3.2.0",
+  "description": "Port of the PHP template engine Smarty to Javascript",
+  "main": "smart.min.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miroshnikov/jsmart.git"
+  },
+  "keywords": [
+    "smarty",
+    "template",
+    "engine",
+    "templating",
+    "php"
+  ],
+  "author": "Max Miroshnikov <miroshnikov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miroshnikov/jsmart/issues"
+  },
+  "homepage": "https://github.com/miroshnikov/jsmart#readme"
+}
