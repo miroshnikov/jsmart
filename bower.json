@@ -1,0 +1,24 @@
+{
+  "name": "jsmart",
+  "homepage": "https://github.com/miroshnikov/jsmart",
+  "authors": [
+    "Max Miroshnikov <miroshnikov@gmail.com>"
+  ],
+  "description": "JavaScript template engine, port of the PHP template engine Smarty to Javascript.",
+  "main": "smart.min.js",
+  "keywords": [
+    "template",
+    "engine",
+    "templating",
+    "smarty",
+    "php"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
