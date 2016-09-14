@@ -19,10 +19,6 @@ See the overview of the basic syntax of jSmart templates [here](https://github.c
 ```html
 <script language="javascript" src="smart.min.js"></script>
 ```
-* Bower
-```
-bower install smarty
-```
 * Node.js
 ```
 npm install smarty.js
@@ -35,6 +31,11 @@ npm install smarty.js
 	    document.write(res);
 	});
 ```
+* Bower
+```
+bower install smarty
+```
+
 ##A Quick Introduction
 Using in browser
 * Create template, use ```PHP Smarty syntax```. Put the template's text in ```<script>``` with the ```type="text/x-jsmart-tmpl"``` so a browser will not try to parse it and mess it up.
