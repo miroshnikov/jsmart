@@ -79,9 +79,6 @@ See the overview of the basic syntax of jSmart templates [here](https://github.c
    var tpl = new jSmart( tplText );
    var res = tpl.fetch( data );
 
-   /* or fetch straigth from JavaScript string */
-   var res = document.getElementById('test_tpl').innerHTML.fetch(data);
-   
    document.write( res );
 </script>
 ```
