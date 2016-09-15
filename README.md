@@ -2,7 +2,7 @@
 
 jSmart is a port of the Smarty Template Engine to Javascript, a JavaScript template library that supports the template [syntax](https://github.com/miroshnikov/jsmart/blob/wiki/syntax.md) and all the features (functions, variable modifiers, etc.) of the well-known PHP template engine [Smarty] (http://www.smarty.net). 
 
-jSmart is written entirely in JavaScript, does not have any DOM/DHTML/browser or third-party JavaScript library dependencies and can be run in a web browser as well as a standalone JavaScript interpreter or [CommonJS](http://www.commonjs.org) environments like [node.js] (http://nodejs.org).
+jSmart is written entirely in JavaScript, does not have any DOM/DHTML/browser or third-party JavaScript library dependencies and can be run in a web browser as well as Node.js.
 
 jSmart supports plugin architecture, you can [extend it with custom plugins](https://github.com/miroshnikov/jsmart/blob/wiki/CreatePlugin.md): functions, blocks and variable modifiers, [templates inclusion](https://github.com/miroshnikov/jsmart/blob/wiki/IncludeTemplates.md), [templates inheritance and overriding](https://github.com/miroshnikov/jsmart/blob/wiki/Template_inheritance.md), [caching](https://github.com/miroshnikov/jsmart/blob/wiki/caching.md), [escape HTML](https://github.com/miroshnikov/jsmart/blob/wiki/escape_html.md).
 
@@ -14,114 +14,57 @@ See the overview of the basic syntax of jSmart templates [here](https://github.c
 
 [**Discussion board**](http://groups.google.com/group/jsmartdiscussion) feel free to ask questions, share your ideas, etc.
 
-##Installation
+##Usage
+
 * Browser
 ```html
 <script type="text/javascript" src="smart.min.js"></script>
 ```
+```javascript
+<script id="tpl" type="text/x-smarty-tmpl">
+   Hello {$who}!
+</script>
+
+<script>
+   var tplText = document.getElementById('tpl').innerHTML;
+   var compiled = new jSmart( tplText );
+   var res = compiled.fetch( { who:'world' } );  //res = Hello world!
+</script>
+```
+
 * Node.js
 ```
 npm install smarty.js
 ```
+```javascript
+var Smarty = require('smarty.js');
+var fs = require('fs');
+
+Smarty.prototype.getTemplate = function(name) {
+    return fs.readFileSync('./templates/'+name, {encoding: 'utf-8'});
+}
+
+var tplText = fs.readFileSync('./templates/main.tpl', {encoding: 'utf-8'});
+var compiled = new Smarty(tplText);
+var res = compiled1.fetch({...});
+```
+
 * Require.js
 ```javascript
-    require(['smart'], function(jSmart){
-    	var compiled = new jSmart("Hello {$who}!");
-	    var res = compiled.fetch({who:'world'});
-	    document.write(res);
-	});
+    require(['smart'], function(Smarty){
+        var compiled = new Smarty("Hello {$who}!");
+	var res = compiled.fetch({who:'world'});
+    });
 ```
+
 * Bower
 ```
 bower install smarty
 ```
 
-##A Quick Introduction
-Using in browser
-* Create template, use ```PHP Smarty syntax```. Put the template's text in ```<script>``` with the ```type="text/x-jsmart-tmpl"``` so a browser will not try to parse it and mess it up.
-```smarty
-<script id="test_tpl" type="text/x-jsmart-tmpl">
- 
-   <h1>{$greeting}</h1>
-
-   {foreach $books as $i => $book}
-      <div style="background-color: {cycle values="cyan,yellow"};">
-         [{$i+1}] {$book.title|upper} by {$book.author} 
-            {if $book.price}                                
-               Price: <span style="color:red">${$book.price}</span>
-            {/if}                                           
-      </div>
-   {foreachelse}
-      No books
-   {/foreach}
-
-   Total: {$book@total}
-
-</script>
-```
-
-* Create JavaScript data object with variables to assign to the template
+* The template's text is compiled in the constructor, so it's fast to call ```fetch()``` with different assigned variables many times.
 ```javascript
-<script>
-
-    var data = {
-       greeting: 'Hi, there are some JScript books you may find interesting:',
-       books : [
-          {
-             title  : 'JavaScript: The Definitive Guide',          
-             author : 'David Flanagan',                            
-             price  : '31.18'
-          },
-          {
-             title  : 'Murach JavaScript and DOM Scripting',
-             author : 'Ray Harris',
-          },
-          {
-             title  : 'Head First JavaScript',
-             author : 'Michael Morrison',
-             price  : '29.54'
-          }
-       ]      
-    };
-
-</script>
-```
-
-* Create new object of ```jSmart``` class, passing the template's text as it's constructor's argument than call ```fetch(data)```, where ```data``` is an JavaScript object with variables to assign to the template
-```javascript
-<script>
-   var tplText = document.getElementById('test_tpl').innerHTML;
-   var tpl = new jSmart( tplText );
-   var res = tpl.fetch( data );
-
-   document.write( res );
-</script>
-```
-
-* The result would be
-```html
-<h1>Hi, there are some JScript books you may find interesting:</h1>
-
-<div style="background-color: cyan;">
-   [1] JAVASCRIPT: THE DEFINITIVE GUIDE by David Flanagan 
-   <span style="color:red">$31.18</span>
-</div>
-
-<div style="background-color: yellow;">
-   [2] MURACH JAVASCRIPT AND DOM SCRIPTING by Ray Harris 
-</div>
-
-<div style="background-color: cyan;">
-   [3] HEAD FIRST JAVASCRIPT by Michael Morrison 
-   <span style="color:red">$29.54</span>
-</div>
-
-Total: 3
-```
-
-* The template's text is compiled in the ```jSmart``` constructor, so it's fast to call ```fetch()``` with different assigned variables many times.
-```javascript
-   var tpl = new jSmart( '{$greeting}, {$name}!' );
-   tpl.fetch( {greeting:'Hello', name:'John'} ); //returns: Hello, John!
-   tpl.fetch( {greeting:'Hi', name:'Jane'} );    //returns: Hi, Jane!
+   var compiled = new jSmart( '{$greeting}, {$name}!' );
+   compiled.fetch( {greeting:'Hello', name:'John'} ); //Hello, John!
+   compiled.fetch( {greeting:'Hi', name:'Jane'} );    //Hi, Jane!
 ```
