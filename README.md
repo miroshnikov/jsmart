@@ -41,7 +41,7 @@ var Smarty = require('smarty.js');
 var fs = require('fs');
 
 Smarty.prototype.getTemplate = function(name) {
-    return fs.readFileSync('./templates/'+name, {encoding: 'utf-8'});
+   return fs.readFileSync('./templates/'+name, {encoding: 'utf-8'});
 }
 
 var tplText = fs.readFileSync('./templates/main.tpl', {encoding: 'utf-8'});
@@ -51,10 +51,10 @@ var res = compiled.fetch({...});
 
 * **Require.js**
 ```javascript
-    require(['smart'], function(Smarty){
-        var compiled = new Smarty("Hello {$who}!");
-        var res = compiled.fetch({who:'world'});
-    });
+require(['smart'], function(Smarty){
+   var compiled = new Smarty("Hello {$who}!");
+   var res = compiled.fetch({who:'world'});
+});
 ```
 
 * **Bower**
@@ -64,7 +64,7 @@ bower install smarty
 
 **Note**: The template's text is compiled in the constructor, so it's fast to call ```fetch()``` with different assigned variables many times.
 ```javascript
-   var compiled = new jSmart( '{$greeting}, {$name}!' );
-   compiled.fetch( {greeting:'Hello', name:'John'} ); //Hello, John!
-   compiled.fetch( {greeting:'Hi', name:'Jane'} );    //Hi, Jane!
+var compiled = new jSmart( '{$greeting}, {$name}!' );
+compiled.fetch( {greeting:'Hello', name:'John'} ); //Hello, John!
+compiled.fetch( {greeting:'Hi', name:'Jane'} );    //Hi, Jane!
 ```
