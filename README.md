@@ -46,7 +46,7 @@ Smarty.prototype.getTemplate = function(name) {
 
 var tplText = fs.readFileSync('./templates/main.tpl', {encoding: 'utf-8'});
 var compiled = new Smarty(tplText);
-var res = compiled1.fetch({...});
+var res = compiled.fetch({...});
 ```
 
 * Require.js
