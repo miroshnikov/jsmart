@@ -16,7 +16,7 @@ See the overview of the basic syntax of jSmart templates [here](https://github.c
 
 ##Usage
 
-* Browser
+* **Browser**
 ```html
 <script type="text/javascript" src="smart.min.js"></script>
 ```
@@ -32,7 +32,7 @@ See the overview of the basic syntax of jSmart templates [here](https://github.c
 </script>
 ```
 
-* Node.js
+* **Node.js**
 ```
 npm install smarty.js
 ```
@@ -49,7 +49,7 @@ var compiled = new Smarty(tplText);
 var res = compiled.fetch({...});
 ```
 
-* Require.js
+* **Require.js**
 ```javascript
     require(['smart'], function(Smarty){
         var compiled = new Smarty("Hello {$who}!");
@@ -57,12 +57,12 @@ var res = compiled.fetch({...});
     });
 ```
 
-* Bower
+* **Bower**
 ```
 bower install smarty
 ```
 
-###Note: The template's text is compiled in the constructor, so it's fast to call ```fetch()``` with different assigned variables many times.
+**Note**: The template's text is compiled in the constructor, so it's fast to call ```fetch()``` with different assigned variables many times.
 ```javascript
    var compiled = new jSmart( '{$greeting}, {$name}!' );
    compiled.fetch( {greeting:'Hello', name:'John'} ); //Hello, John!
