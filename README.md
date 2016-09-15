@@ -53,7 +53,7 @@ var res = compiled.fetch({...});
 ```javascript
     require(['smart'], function(Smarty){
         var compiled = new Smarty("Hello {$who}!");
-	var res = compiled.fetch({who:'world'});
+        var res = compiled.fetch({who:'world'});
     });
 ```
 
@@ -62,7 +62,7 @@ var res = compiled.fetch({...});
 bower install smarty
 ```
 
-* The template's text is compiled in the constructor, so it's fast to call ```fetch()``` with different assigned variables many times.
+###Note: The template's text is compiled in the constructor, so it's fast to call ```fetch()``` with different assigned variables many times.
 ```javascript
    var compiled = new jSmart( '{$greeting}, {$name}!' );
    compiled.fetch( {greeting:'Hello', name:'John'} ); //Hello, John!
